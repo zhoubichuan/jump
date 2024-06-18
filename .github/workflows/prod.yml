@@ -1,0 +1,18 @@
+name: prod
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: copy file  via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          source: '*'
+          host: ${{ secrets.HOST }}
+          target: '/usr/src/zhoubichuan/prod/jump/'
+          port: ${{ secrets.PORT }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.PASSWORD }}
