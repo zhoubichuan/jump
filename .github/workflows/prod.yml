@@ -10,7 +10,7 @@ jobs:
       - name: copy file  via ssh key
         uses: appleboy/scp-action@master
         with:
-          source: '*'
+          source: '/*'
           host: ${{ secrets.HOST }}
           target: '/usr/src/zhoubichuan/prod/jump/'
           port: ${{ secrets.PORT }}
